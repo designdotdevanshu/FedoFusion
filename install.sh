@@ -11,10 +11,12 @@ unzip ./Orchis-Shell-MOD.zip
 mkdir -p ~/.themes
 rsync -av ./Orchis-Shell-MOD ~/.themes
 
-wget https://mega.nz/linux/repo/Fedora_39/x86_64/megacmd-Fedora_39.x86_64.rpm && sudo dnf install "$PWD/megacmd-Fedora_39.x86_64.rpm" -y
+wget https://mega.nz/linux/repo/Fedora_39/x86_64/megacmd-Fedora_39.x86_64.rpm
+sudo dnf install megacmd -y
 
 echo "Installing backgrounds, fonts and icons"
 mega-get https://mega.nz/folder/ZyExjALD\#JFEA0mB4oDJdlFh6OCAf5w
+
 mv ./FedoFusion/* . && rm -rf ./FedoFusion
 unzip ./backgrounds.zip
 unzip ./fonts.zip
@@ -36,4 +38,6 @@ echo "Installing WhiteSur firefox theme"
 git clone https://github.com/vinceliuice/WhiteSur-firefox-theme.git
 ./WhiteSur-firefox-theme/install.sh -a
 
+echo "Removing megacmd"
+sudo dnf remove megacmd -y
 echo "Done installing FedoFusion"
